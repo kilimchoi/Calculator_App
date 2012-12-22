@@ -1,6 +1,6 @@
 Calculator_App
 ==============
-   How-to Use
+       How-to Use
 
 1. Press number. 
 
