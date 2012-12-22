@@ -1,6 +1,7 @@
 Calculator_App
 ==============
 How-to Use
+
 1. Press number. 
 
 2. Press Enter.
