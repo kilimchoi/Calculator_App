@@ -61,6 +61,8 @@
         result = cos ([self popOperand]);
     } else if ([operation isEqualToString:@"sqrt"]) {
         result = sqrt([self popOperand]);
+    } else if ([operation isEqualToString:@"π"]) {
+        result = M_PI;
     }
     [self pushOperand:result];
     return result;

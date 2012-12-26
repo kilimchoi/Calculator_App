@@ -26,14 +26,30 @@
     if (!_brain) _brain = [[CalculatorBrain alloc] init];
     return _brain;
 }
+
+
 - (IBAction)digitPressed:(UIButton *)sender {
-    NSString *digit = [sender currentTitle];
-    if (self.userIsInTheMiddleOfEnteringANumber) {
-        self.display.text = [self.display.text stringByAppendingString:digit];
-    } else {
-        self.display.text = digit;
-        self.userIsInTheMiddleOfEnteringANumber = YES;
+    NSString *digit = [[sender titleLabel] text];
+    NSRange range = [[display text] rangeOfString:@"."];
+    if (userIsInTheMiddleOfEnteringANumber) 
+    {
+        if ( ! ([digit isEqual:@"."] && (range.location != NSNotFound))) { //returns true if "." found the first time. returns false if "." found in the consecutive stages. 
+            [display setText:[[display text] stringByAppendingFormat:digit]];
+        }
     }
+    else //if user inputs for the first time.
+    {
+        if ([digit isEqual:@"."]) {
+            [display setText: @"0."];
+        }
+        else {
+            [display setText: digit];
+        }
+        
+        userIsInTheMiddleOfEnteringANumber = YES;
+        
+    }
+
 }
 - (IBAction)enterPressed {
     [self.brain pushOperand:[self.display.text doubleValue]];
