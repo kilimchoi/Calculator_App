@@ -1,6 +1,6 @@
+From Stanford's cs193p class.
 Calculator_App
-
-From Stanford's cs193p class. 
+ 
 ==============
      How-to Use
      1. Press 1st number. 
